@@ -9,7 +9,6 @@ public class Pacifista extends Aldeanos{
     
     public Pacifista(){
         super(0);
-        System.out.println("La paz siempre es mejor hermano");
     }
 
     public Pacifista(String nombre, String apellido, int edad, double vida) {
@@ -18,8 +17,10 @@ public class Pacifista extends Aldeanos{
 
     @Override
     public double danio(Aldeanos atacar) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       System.out.println("La paz siempre es mejor hermano");
+        return 0;
+        //romeo esta mamadisimo pero la paz mas//
     }
-    
+        
     
 }

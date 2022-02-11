@@ -8,14 +8,15 @@ import java.util.ArrayList;
 
 public class Familias {
     private String linaje;
-    private ArrayList<Aldeanos>aldeanos=new ArrayList();
+    private ArrayList<Aldeanos>aldeanos;
 
     public Familias() {
     }
 
-    public Familias(String linaje,ArrayList<Aldeanos>aldeanos) {
+
+    public Familias(String linaje) {
         this.linaje = linaje;
-        this.aldeanos=aldeanos;
+        this.aldeanos=new ArrayList();
     }
 
     public String getLinaje() {
