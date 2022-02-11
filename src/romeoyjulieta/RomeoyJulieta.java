@@ -1,20 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package romeoyjulieta;
 
-/**
- *
- * @author famil
- */
+import java.util.ArrayList;
+
+
 public class RomeoyJulieta {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+       
+        Aldeanos romeo=new SuperGranjero("Romeo","Montesco",20,1000);
+        ArrayList<Aldeanos>montesco=new ArrayList();
+        montesco.add(new Herrero("Pedrito","Montesco",50,400));
+        montesco.add(new Agronomo("Jose","Montesco",29,300));
+        Familias Montesco=new Familias("Montesco",montesco);
+         Aldeanos julieta=new Normales("Romeo","Montesco",20,200);
+        ArrayList<Aldeanos>capuleto=new ArrayList();
+        capuleto.add(new Herrero("Pedrito","Montesco",50,400));
+        capuleto.add(new Agronomo("Jose","Montesco",29,300));
+        Familias Capuleto=new Familias("Capuleto",capuleto);
+        String linaje="";
+        ArrayList<Aldeanos>general=new ArrayList();
+        ArrayList<Familias>General=new ArrayList();
+        General.add(new Familias(linaje,general));
+        
+        
     }
     
 }

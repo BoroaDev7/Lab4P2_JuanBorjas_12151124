@@ -4,10 +4,41 @@
  */
 package romeoyjulieta;
 
-/**
- *
- * @author famil
- */
+import java.util.ArrayList;
+
 public class Familias {
+    private String linaje;
+    private ArrayList<Aldeanos>aldeanos=new ArrayList();
+
+    public Familias() {
+    }
+
+    public Familias(String linaje,ArrayList<Aldeanos>aldeanos) {
+        this.linaje = linaje;
+        this.aldeanos=aldeanos;
+    }
+
+    public String getLinaje() {
+        return linaje;
+    }
+
+    public void setLinaje(String linaje) {
+        this.linaje = linaje;
+    }
+
+    public ArrayList<Aldeanos> getAldeanos() {
+        return aldeanos;
+    }
+
+    public void setAldeanos(ArrayList<Aldeanos> aldeanos) {
+        this.aldeanos = aldeanos;
+    }
+
+    @Override
+    public String toString() {
+        return "Familias{" + "linaje=" + linaje + ", aldeanos=" + aldeanos + '}';
+    }
+  
+    
     
 }
