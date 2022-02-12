@@ -74,7 +74,7 @@ public abstract class Aldeanos {
 
     @Override
     public String toString() {
-        return  "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", vida=" + vida ;
+        return  "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", vida=" + vida  ;
     }
     
     public abstract double danio(Aldeanos atacar);

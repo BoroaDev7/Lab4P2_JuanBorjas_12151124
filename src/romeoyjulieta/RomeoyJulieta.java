@@ -207,19 +207,27 @@ public class RomeoyJulieta {
                double danioOtrasFam=lista_fam.get(pos).getAldeanos().get(indice).getPuntAtaque();
               String nombreMontesco=lista_fam.get(0).getAldeanos().get(indice).getNombre();
               String nombreOtrasFam=lista_fam.get(pos).getAldeanos().get(indice).getNombre();
-              double vidarestante=(vidaOtrasFam)-(danioMontesco);
+              double vidarestanteOtrasFam=(vidaOtrasFam)-(danioMontesco);
+              double vidarestanteMon=(vidaMontesco)-(danioOtrasFam);
                                     
-               System.out.println( nombreMontesco + " ha atacado a " + nombreOtrasFam  + " haciendole " + danioMontesco  + " dejandolo con " + vidarestante  + " de vida");
-               
-               
+               System.out.println( nombreMontesco + " ha atacado a " + nombreOtrasFam  + " haciendole " + danioMontesco  + " dejandolo con " + vidarestanteOtrasFam  + " de vida");
+               if(vidarestanteOtrasFam <= 0){
+                System.out.println("Ha Ganado " + nombreMontesco );  
                
              }
+               else{
+                    System.out.println( nombreOtrasFam + " ha atacado a " + nombreMontesco + " haciendole " + danioOtrasFam  + " dejandolo con " + vidarestanteMon  + " de vida");
+                    if(vidarestanteMon<=0){
+                        System.out.println("Ha Ganado"+nombreOtrasFam);
+                    }
+               }
             
         }
      
         
     }
-   
+        
+    }
    
    
 }

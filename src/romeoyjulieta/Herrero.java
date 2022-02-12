@@ -2,7 +2,7 @@
 package romeoyjulieta;
 
 public class Herrero extends Aldeanos {
-    private int danio;
+    private int danio=(int)(Math.random()*300+200);
     
     public Herrero(){
         super();  
@@ -10,9 +10,6 @@ public class Herrero extends Aldeanos {
 
     public Herrero(int danio) {
         super(danio); 
-        if(danio>=200 && danio<=500){
-           this.danio=danio; 
-        }
  
     }
 
@@ -29,7 +26,7 @@ public class Herrero extends Aldeanos {
     if(proba<=10){
         System.out.println("Fallo el ataque");
     }
-        else if(atacar instanceof Agronomo ){
+        else if(proba>10 && atacar instanceof Agronomo ){
             return super.getPuntAtaque()*1.1;
         }
         else if(atacar instanceof Pacifista ){
