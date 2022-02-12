@@ -204,7 +204,12 @@ public class RomeoyJulieta {
             double vidaOtrasFam=lista_fam.get(pos).getAldeanos().get(indice).getVida();
              while(vidaMontesco>0 && vidaOtrasFam>0){
                double danioMontesco=lista_fam.get(0).getAldeanos().get(indice).getPuntAtaque();
-               double danioOtrasFasm=lista_fam.get(pos).getAldeanos().get(indice).getPuntAtaque();
+               double danioOtrasFam=lista_fam.get(pos).getAldeanos().get(indice).getPuntAtaque();
+              String nombreMontesco=lista_fam.get(0).getAldeanos().get(indice).getNombre();
+              String nombreOtrasFam=lista_fam.get(pos).getAldeanos().get(indice).getNombre();
+              double vidarestante=(vidaOtrasFam)-(danioMontesco);
+                                    
+               System.out.println( nombreMontesco + " ha atacado a " + nombreOtrasFam  + " haciendole " + danioMontesco  + " dejandolo con " + vidarestante  + " de vida");
                
                
                
