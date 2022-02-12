@@ -1,11 +1,14 @@
 
 package romeoyjulieta;
 
+import java.util.Random;
+
 /**
  *
  * @author famil
  */
 public class Normales extends Aldeanos{
+  
     
     public Normales(){
         super(50);
@@ -15,12 +18,17 @@ public class Normales extends Aldeanos{
         super(nombre, apellido, edad, vida);
     }
     
+   
+
+   
     @Override
     public  double danio(Aldeanos atacar){
-        if(atacar instanceof Pacifista ){
+    
+     if(atacar instanceof Pacifista ){
             return super.getPuntAtaque()*1.05;
         }
         return super.getPuntAtaque();
     }
+
     
 }

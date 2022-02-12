@@ -2,14 +2,16 @@
 package romeoyjulieta;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 
 public class RomeoyJulieta {
   public static Scanner leer=new Scanner(System.in);
-  public static String linaje="";
-   public static  ArrayList<Aldeanos>general=new ArrayList();
-   public static  ArrayList<Familias>General=new ArrayList();
+  public static String apefam="";
+   public static  ArrayList<Aldeanos>aldeano=new ArrayList();
+   public static  ArrayList<Familias>lista_fam=new ArrayList();
+   public static Familias linaje;
   
   
   
@@ -19,12 +21,14 @@ public class RomeoyJulieta {
         ArrayList<Aldeanos>montesco=new ArrayList();
         montesco.add(new Herrero("Pedrito","Montesco",50,400));
         montesco.add(new Agronomo("Jose","Montesco",29,300));
+        montesco.add(romeo);
         Familias Montesco=new Familias("Montesco");
         Montesco.setAldeanos(montesco);
          Aldeanos julieta=new Normales("Julieta","Capuleto",20,200);
         ArrayList<Aldeanos>capuleto=new ArrayList();
         capuleto.add(new Explosivo("Raul","Capuleto",50,400));
         capuleto.add(new Pacifista("Lorax","Capuleto",29,300));
+        capuleto.add(julieta);
         Familias Capuleto=new Familias("Capuleto");
         Capuleto.setAldeanos(capuleto);
         ArrayList<Aldeanos>lopez=new ArrayList();
@@ -33,10 +37,14 @@ public class RomeoyJulieta {
         Familias Lopez=new Familias("Lopez");
         Lopez.setAldeanos(lopez);
         
+        lista_fam.add(Montesco);
+        lista_fam.add(Capuleto);
+        lista_fam.add(Lopez);
    
         
-        opciones((menu));
-        
+        do{
+            opciones( menu() );
+        }while(true);
         
     }
     
@@ -63,25 +71,23 @@ public class RomeoyJulieta {
                 System.exit(0); 
          if(opcion==1)
             crearFamilias();
-            if(opcion ==2)
-                listarmascotas();
+            if(opcion==2)
+                crearAldeanos();
             if(opcion==3)
-                agregarclien();
+                imprimirFamilias();
             if(opcion==4)
-                adoptar();
-            if(opcion==5)
-                listarclientes();
-          
-        
-     
+                pelear();
+         
+
         
     }
    
    public static void crearFamilias(){
        System.out.println("Apellido de la Familia");
-       String linaje=leer.next();
-       
-       General.add(new Familias(linaje));
+        apefam=leer.next();
+       String [] fam=apefam.split("&");
+       linaje=new Familias(fam[0]);
+       lista_fam.add(linaje);
    }
    
    public static void crearAldeanos(){
@@ -94,11 +100,120 @@ public class RomeoyJulieta {
        System.out.println("Puntos de vida");
        int vida=leer.nextInt();
        
+       System.out.println("\n Tipo de aldeano");
+       System.out.println("1.Normal\n"+
+                          "2.Pacifista\n"+
+                          "3.Herrero\n"+ 
+                          "4.Agronomo\n"+
+                          "5.Explosivo\n"+
+                          "6.Pacifista\n"+
+                          "Ingrese una opcion\n");
+       int opcion=leer.nextInt();
        
-       
-       
-  
+       switch(opcion){
+           case 1:
+                if(apellido.equals(apefam)){
+               ArrayList<Aldeanos> aldea=new ArrayList();
+               Aldeanos aldeanito = new Normales(nombre,apellido,edad,vida);
+               aldea.add(aldeanito);
+              int indice=0;
+                   int pos=lista_fam.indexOf(linaje);
+                   lista_fam.get(pos).getAldeanos().add(aldea.get(indice));
+                   indice++;
+                }
+                
+               break;
+           case 2:
+               
+               if(apellido.equals(apefam)){
+               ArrayList<Aldeanos> aldea=new ArrayList();
+               Aldeanos aldeanito = new Pacifista(nombre,apellido,edad,vida);
+               aldea.add(aldeanito);
+              int indice=0;
+                   int pos=lista_fam.indexOf(linaje);
+                   lista_fam.get(pos).getAldeanos().add(aldea.get(indice));
+                   indice++;
+                }
+               break;
+           case 3:        
+                if(apellido.equals(apefam)){
+               ArrayList<Aldeanos> aldea=new ArrayList();
+               Aldeanos aldeanito = new Herrero(nombre,apellido,edad,vida);
+               aldea.add(aldeanito);
+              int indice=0;
+                   int pos=lista_fam.indexOf(linaje);
+                  lista_fam.get(pos).getAldeanos().add(aldea.get(indice));
+                   indice++;
+                }
+               break;
+           case 4:
+                 if(apellido.equals(apefam)){
+               ArrayList<Aldeanos> aldea=new ArrayList();
+               Aldeanos aldeanito = new Agronomo(nombre,apellido,edad,vida);
+               aldea.add(aldeanito);
+              int indice=0;
+                   int pos=lista_fam.indexOf(linaje);
+                   lista_fam.get(pos).getAldeanos().add(aldea.get(indice));
+                   indice++;
+                }
+                break;
+           case 5:
+                if(apellido.equals(apefam)){
+               ArrayList<Aldeanos> aldea=new ArrayList();
+               Aldeanos aldeanito = new Explosivo(nombre,apellido,edad,vida);
+               aldea.add(aldeanito);
+              int indice=0;
+                   int pos=lista_fam.indexOf(linaje);
+                   lista_fam.get(pos).getAldeanos().add(aldea.get(indice));
+                   indice++;
+                }
+                break;
+           case 6:
+                 if(apellido.equals(apefam)){
+               ArrayList<Aldeanos> aldea=new ArrayList();
+               Aldeanos aldeanito = new Pacifista(nombre,apellido,edad,vida);
+               aldea.add(aldeanito);
+              int indice=0;
+                   int pos=lista_fam.indexOf(linaje);
+                   lista_fam.get(pos).getAldeanos().add(aldea.get(indice));
+                   indice++;
+                }
+                break;
+                          
+       }
+         
+
+
    }
+   
+    public static void imprimirFamilias(){
+           
+           for (Familias aldeanos : lista_fam) {
+               System.out.println(aldeanos.toString());
+           }
+         
+       }
+    public static void pelear(){
+        System.out.println("Ingrese el apellido de la familia que peleará");
+        String apellido=leer.next();
+        if(apellido.equals(apefam)){
+            int pos=lista_fam.indexOf(linaje);
+            int indice=0;
+            Collections.shuffle(lista_fam.get(pos).getAldeanos());
+            double vidaMontesco=lista_fam.get(0).getAldeanos().get(2).getVida();
+            double vidaOtrasFam=lista_fam.get(pos).getAldeanos().get(indice).getVida();
+             while(vidaMontesco>0 && vidaOtrasFam>0){
+               double danioMontesco=lista_fam.get(0).getAldeanos().get(indice).getPuntAtaque();
+               double danioOtrasFasm=lista_fam.get(pos).getAldeanos().get(indice).getPuntAtaque();
+               
+               
+               
+             }
+            
+        }
+     
+        
+    }
    
    
    

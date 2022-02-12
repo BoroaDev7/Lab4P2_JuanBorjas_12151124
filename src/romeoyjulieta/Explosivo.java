@@ -14,7 +14,15 @@ public class Explosivo extends Aldeanos {
 
     @Override
     public double danio(Aldeanos atacar) {
-        if(atacar instanceof Herrero ){
+        
+      int proba=0;
+    proba=(int)(Math.random()*100);
+    
+    if(proba<=15){
+        System.out.println("Fallo el ataque");
+
+    }
+        else if(proba>15 && atacar instanceof Herrero ){
             return super.getPuntAtaque()*1.05;
         }
          else if(atacar instanceof Agronomo){

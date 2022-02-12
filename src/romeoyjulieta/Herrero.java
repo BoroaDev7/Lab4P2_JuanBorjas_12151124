@@ -22,7 +22,14 @@ public class Herrero extends Aldeanos {
 
     @Override
     public double danio(Aldeanos atacar) {
-        if(atacar instanceof Agronomo ){
+        
+            int proba=0;
+    proba=(int)(Math.random()*100);
+    
+    if(proba<=10){
+        System.out.println("Fallo el ataque");
+    }
+        else if(atacar instanceof Agronomo ){
             return super.getPuntAtaque()*1.1;
         }
         else if(atacar instanceof Pacifista ){

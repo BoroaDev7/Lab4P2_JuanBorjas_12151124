@@ -14,7 +14,14 @@ public class Agronomo extends Aldeanos {
 
     @Override
     public double danio(Aldeanos atacar) {
-         if(atacar instanceof Pacifista ){
+            int proba=0;
+    proba=(int)(Math.random()*100);
+    
+    if(proba<=5){
+        System.out.println("Fallo el ataque");
+
+    }
+        else if(proba>5 && atacar instanceof Pacifista ){
             return super.getPuntAtaque()*1.05;
         }
          else if(atacar instanceof Normales){
